@@ -1,0 +1,117 @@
+header.sticky {
+    background: #fff;
+    padding: 10px 100px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 10000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+}
+
+header .logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+header.sticky .logo {
+    color: #111;
+}
+
+header .logo span {
+    color: #ff0157;
+}
+
+header .navigation {
+    position: relative;
+    display: flex;
+}
+
+header .navigation li {
+    list-style: none;
+    margin-left: 30px;
+}
+
+header .navigation li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 300;
+}
+
+header.sticky .navigation li a  {
+    color: #111;
+}
+
+header.sticky .navigation li a:hover  {
+    color: #ff0157;
+}
+
+@media (max-width: 991px) {
+    header, header.sticky {
+        padding: 10px 20px;
+        transition: 0.5s;
+    }
+    header.sticky .menuToggle {
+        filter: invert(1);
+    }
+    header .navigation {
+        display: none;
+    }
+    header .navigation.active {
+        width: 100%;
+        height: calc(100% - 68px);
+        position: fixed;
+        top: 68px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: #ff0157;
+        transition: all .5s;
+    }
+    header .menuToggle.navigation.active ~ ul {
+        left: -100%;
+        transition: all .5s;
+    }
+    header .navigation li {
+        margin-left: 0;
+    }
+    header .navigation li a {
+        color: #fff;
+        font-size: 1.6em;
+    }
+    header.sticky .navigation li a  {
+        color: #fff;
+    }
+    header.sticky .navigation li a:hover  {
+        color: #111;
+    }
+    .menuToggle {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        background: url("../../assets/menu.png");
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .menuToggle.active {
+        background: url("../../assets/close.png");
+        background-size: 25px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
